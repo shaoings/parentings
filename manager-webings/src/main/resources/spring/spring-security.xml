@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+        xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+
+
+
+
+    <!--以下页面不被拦截  security = "none" 设置此资源不被拦截-->
+    <http pattern="/login.html" security="none"></http>
+    <http pattern="/css/**" security="none"></http>
+    <http pattern="/img/**" security="none"></http>
+    <http pattern="/js/**" security="none"></http>
+    <http pattern="/plugins/**" security="none"></http>
+        <!-- 页面拦截规则 -->
+        <!--配置说明-->
+        <!--/*表示的是该目录下的资源，只包括本级目录不包括下级目录-->
+        <!--/**表示的是该目录以及该目录下所有级别子目录的资源 -->
+        <!--use-expressions="false" 是否启用spel表达式 false 表示不启用 spel表达式  access="hasRole('ROLE_USER')" -->
+        <!--access 表示拥有此角色才能访问 pattern 资源-->
+        <!--login-page：指定登录页面。
+            authentication-failure-url：指定了身份验证失败时跳转到的页面。
+            default-target-url：指定了成功进行身份验证和授权后默认呈现给用户的页面。
+            csrf disabled="true"  关闭csrf ,如果不加会出现错误-->
+    <http use-expressions="false">
+            <intercept-url pattern="/*" access="ROLE_ADMIN" />
+            <!--form-login  为开启表单登陆-->
+            <form-login login-page="/login.html" default-target-url="/admin/index.html"
+                        authentication-failure-url="/login.html" always-use-default-target="true"/>
+            <!--CSRF（Cross-site request forgery）跨站请求伪造，也被称为“One Click Attack”或者Session Riding，通常缩写为CSRF或者XSRF，是一种对网站的恶意利用。-->
+            <!--安全机制-->
+            <csrf disabled="true"/>
+            <!--如果你在系统中使用了框架页，需要设置框架页的策略为SAMEORIGIN-->
+            <headers>
+                <frame-options policy="SAMEORIGIN"/>
+            </headers>
+            <!--加此配置后，会自动的产生退出登录的地址/logout（即登录目录）,如果你不想用这个地址 ，你也可以定义生成的退出地址以及跳转的页面，配置如下
+            <logout logout-url="" logout-success-url=""/>
+             logout-url:退出的地址，会自动生成
+             logout-success-url:退出后跳转的地址-->
+           <logout/>
+    </http>
+
+
+        <!-- 认证管理器 -->
+       <authentication-manager>
+           <!--认证的提供者-->
+           <authentication-provider>
+            <user-service>
+                    <user name="admin" password="123456" authorities="ROLE_ADMIN"/>
+            </user-service>
+           </authentication-provider>
+     </authentication-manager>
+</beans:beans>

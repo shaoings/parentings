@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/daoings/daoings.iml" filepath="$PROJECT_DIR$/daoings/daoings.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pojoings/pojoings.iml" filepath="$PROJECT_DIR$/pojoings/pojoings.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sellergoods-interfaceings/sellergoodsinterfaceings.iml" filepath="$PROJECT_DIR$/sellergoods-interfaceings/sellergoodsinterfaceings.iml" />
+    </modules>
+  </component>
+</project>
