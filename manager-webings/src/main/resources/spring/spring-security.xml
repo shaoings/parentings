@@ -24,7 +24,7 @@
             default-target-url：指定了成功进行身份验证和授权后默认呈现给用户的页面。
             csrf disabled="true"  关闭csrf ,如果不加会出现错误-->
     <http use-expressions="false">
-            <intercept-url pattern="/*" access="ROLE_ADMIN" />
+            <intercept-url pattern="/**" access="ROLE_ADMIN" />
             <!--form-login  为开启表单登陆-->
             <form-login login-page="/login.html" default-target-url="/admin/index.html"
                         authentication-failure-url="/login.html" always-use-default-target="true"/>

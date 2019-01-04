@@ -5,8 +5,8 @@
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="seller_id" property="sellerId" jdbcType="VARCHAR" />
     <result column="goods_name" property="goodsName" jdbcType="VARCHAR" />
-    <result column="default_item_id" property="defaultItemId" jdbcType="BIGINT" />
     <result column="audit_status" property="auditStatus" jdbcType="VARCHAR" />
+    <result column="default_item_id" property="defaultItemId" jdbcType="BIGINT" />
     <result column="is_marketable" property="isMarketable" jdbcType="VARCHAR" />
     <result column="brand_id" property="brandId" jdbcType="BIGINT" />
     <result column="caption" property="caption" jdbcType="VARCHAR" />
