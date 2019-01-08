@@ -8,5 +8,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: org.apache.solr:solr-solrj:4.10.3" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.data:spring-data-solr:1.5.5.RELEASE" level="project" />
   </component>
 </module>

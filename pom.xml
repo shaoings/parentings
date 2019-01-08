@@ -16,6 +16,12 @@
         <module>manager-webings</module>
         <module>shop-webings</module>
         <module>commonings</module>
+        <module>content-serviceings</module>
+        <module>content-interfaceings</module>
+        <module>portal-webings</module>
+        <module>solr-utilings</module>
+        <module>search-interfaceings</module>
+        <module>search-serviceings</module>
     </modules>
 
     <!-- 集中定义依赖版本号 -->

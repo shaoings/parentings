@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/content-serviceings" />
+    <file type="web" url="file://$PROJECT_DIR$/contentinterfaceings/content-serviceings" />
     <file type="web" url="file://$PROJECT_DIR$/daoings" />
     <file type="web" url="file://$PROJECT_DIR$/manager-webings" />
     <file type="web" url="file://$PROJECT_DIR$/pojoings" />
+    <file type="web" url="file://$PROJECT_DIR$/portal-webings" />
+    <file type="web" url="file://$PROJECT_DIR$/search-serviceings" />
     <file type="web" url="file://$PROJECT_DIR$/sellergoods-interfaceings" />
     <file type="web" url="file://$PROJECT_DIR$/sellergoods-serviceings" />
     <file type="web" url="file://$PROJECT_DIR$/shop-webings" />
@@ -13,12 +17,16 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/contentinterfaceings/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/content-interfaceings/pom.xml" />
+        <option value="$PROJECT_DIR$/contentinterfaceings/content-serviceings/pom.xml" />
         <option value="$PROJECT_DIR$/daoings/pom.xml" />
         <option value="$PROJECT_DIR$/pojoings/pom.xml" />
+        <option value="$PROJECT_DIR$/pojoings/solr-utilings/pom.xml" />
         <option value="$PROJECT_DIR$/sellergoods-interfaceings/pom.xml" />
       </set>
     </option>

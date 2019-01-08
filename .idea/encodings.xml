@@ -2,14 +2,17 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/commonings" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/daoings" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/content-interfaceings" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/content-serviceings" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/daoings" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/manager-webings" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/pojoings" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/pojoings" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/sellergoods-interfaceings" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/portal-webings" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/search-interfaceings" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/search-serviceings" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/sellergoods-interfaceings" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/sellergoods-serviceings" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/shop-webings" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/solr-utilings" charset="UTF-8" />
   </component>
 </project>

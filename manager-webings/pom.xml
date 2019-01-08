@@ -104,7 +104,18 @@
         </dependency>
         <dependency>
             <groupId>com.hhdb.pinyougou</groupId>
-            <artifactId>sellergoods-interfaceings</artifactId>
+            <artifactId>pojoings</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.hhdb.pinyougou</groupId>
+            <artifactId>commonings</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.hhdb.pinyougou</groupId>
+            <artifactId>content-interfaceings</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <!-- 身份验证 -->
@@ -116,6 +127,7 @@
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-config</artifactId>
         </dependency>
+
     </dependencies>
 
     <build>

@@ -7,15 +7,21 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="commonings" />
+        <module name="contentinterfaceings" />
+        <module name="contentserviceings" />
         <module name="daoings" />
         <module name="managerwebings" />
-        <module name="pojoings" />
+        <module name="portalwebings" />
+        <module name="searchinterfaceings" />
+        <module name="searchserviceings" />
         <module name="sellergoodsinterfaceings" />
         <module name="sellergoodsserviceings" />
         <module name="shopwebings" />
+        <module name="solrutilings" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="contentinterfaceings" target="1.8" />
       <module name="daoings" target="1.8" />
       <module name="pojoings" target="1.8" />
       <module name="sellergoodsinterfaceings" target="1.8" />
