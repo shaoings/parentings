@@ -2,6 +2,8 @@ package com.pinyougou.pojo;
 
 
 
+
+
 import org.apache.solr.client.solrj.beans.Field;
 import org.springframework.data.solr.core.mapping.Dynamic;
 

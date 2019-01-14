@@ -22,6 +22,7 @@
         <module>solr-utilings</module>
         <module>search-interfaceings</module>
         <module>search-serviceings</module>
+        <module>search-webings</module>
     </modules>
 
     <!-- 集中定义依赖版本号 -->

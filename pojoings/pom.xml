@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>pojoings</artifactId>
-    <packaging>pom</packaging>
+
 
     <name>pojoings</name>
   <!-- FIXME change it to the project's website -->

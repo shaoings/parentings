@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.Map;
 
+
 @Component
 //@component （把普通pojo实例化到spring容器中，相当于配置文件中的
 //<bean id="" class=""/>）
@@ -30,8 +31,8 @@ public class SolrUtil {
         List<TbItem> itemList = tbItemMapper.selectByExample(example);
 
         for (TbItem item:itemList){
-            System.out.println(item.getId()+" " +item.getTitle()+" ");
-            Map specMap = JSON.parseObject(item.getSpec(), Map.class);//从数据库中提取规格JSON字符串转换为map
+           // System.out.println(item.getId()+" " +item.getTitle()+" ");
+            Map<String,String> specMap = JSON.parseObject(item.getSpec(), Map.class);//从数据库中提取规格JSON字符串转换为map
             item.setSpecMap(specMap);
         }
         System.out.println("----结束----");
