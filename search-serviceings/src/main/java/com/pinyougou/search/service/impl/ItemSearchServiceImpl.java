@@ -3,8 +3,10 @@ package com.pinyougou.search.service.impl;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.pinyougou.pojo.TbItem;
 import com.pinyougou.search.service.ItemSearchService;
+import jdk.nashorn.internal.runtime.regexp.joni.SearchAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.solr.core.SolrTemplate;
 import org.springframework.data.solr.core.query.*;
@@ -39,8 +41,12 @@ public class ItemSearchServiceImpl implements ItemSearchService {
         // query.setRows();   每页记录数 默认为10
         ScoredPage<TbItem> page = solrTemplate.queryForPage(query,TbItem.class);
         map.put("rows",page.getContent());*/
-        //1.查询列表
-        map.putAll(searchList(searchMap));//查询出来的商品
+        //空格处理
+        String keywords = (String) searchMap.get("keywords");
+        //去掉空格
+        searchMap.put("keywords",keywords.replace(" ",""));
+        //1.查询列表 查询出来的商品
+        map.putAll(searchList(searchMap));
 
         /****查询的条件:商品分类、品牌、规格****/
         //2.分组查询商品分类列表
@@ -52,15 +58,27 @@ public class ItemSearchServiceImpl implements ItemSearchService {
             map.putAll(searchBrandAndSpecList(category));
         }else{
             if(categoryList.size()>0){
-                map.putAll(searchBrandAndSpecList((categoryList.get(0))));//取第一个商品分类的规格和品牌
+                //取第一个商品分类的规格和品牌
+                map.putAll(searchBrandAndSpecList((categoryList.get(0))));
             }
         }
 
-
-
-
-
         return map;
+    }
+
+    @Override
+    public void importList(List list) {
+        solrTemplate.saveBean(list);
+        solrTemplate.commit();
+    }
+
+    @Override
+    public void deleteByGoodsIds(List goodsIds) {
+        Query query = new SimpleQuery("*:*");
+        Criteria criteria = new Criteria("item_goodsid").in(goodsIds);
+        query.addCriteria(criteria);
+        solrTemplate.delete(query);
+        solrTemplate.commit();
     }
 
     /**
@@ -106,6 +124,51 @@ public class ItemSearchServiceImpl implements ItemSearchService {
            }
         }
 
+        //1.5 按价格过滤
+        if(!"".equals(searchMap.get("price"))){//如果区间不等于0
+            String[] price = searchMap.get("price").toString().split("-");
+            if(!price[0].equals("0")){ //如果区间起点不等于0
+                Criteria filterCriteria = new Criteria("item_price").greaterThanEqual(price[0]);
+                FilterQuery filterQuery = new SimpleFilterQuery(filterCriteria);
+                query.addFilterQuery(filterQuery);
+            }
+
+            if(!price[1].equals("*")){//如果区间不等于*
+                Criteria filterCriteria=new  Criteria("item_price").lessThanEqual(price[1]);
+                FilterQuery filterQuery=new SimpleFilterQuery(filterCriteria);
+                query.addFilterQuery(filterQuery);
+            }
+
+        }
+
+        //1.6分页查询
+        Integer pageNo = (Integer) searchMap.get("pageNo");//提取页码
+        if(pageNo == null){
+            pageNo = 1; //默认第一页
+        }
+
+        Integer pageSize = (Integer) searchMap.get("pageSize");//每页记录数
+        if(pageSize == null){
+            pageSize = 20;//默认20
+        }
+        query.setOffset((pageNo-1)*pageSize);//从第几条记录从查询
+        query.setRows(pageSize);
+
+        //1.7 排序
+        String sortValue = (String) searchMap.get("sort");//升序ASC,降序DESC
+        String sortField = (String) searchMap.get("sortField");
+        Sort sort = null;
+        if(sortValue != null && !sortValue.equals("")){
+            if(sortValue.equals("ASC")){
+                 sort = new Sort(Sort.Direction.ASC,"item_"+sortField);
+            }
+            if(sortValue.equals("DESC")){
+                 sort = new Sort(Sort.Direction.DESC,"item_"+sortField);
+            }
+            query.addSort(sort);
+        }
+
+
 
         /*****获取高亮结果集*****/
         //返回一个高亮页对象
@@ -125,6 +188,8 @@ public class ItemSearchServiceImpl implements ItemSearchService {
             //List<HighlightEntry.Highlight> highlightList = h.getHighlights(); 每个域可能存在多值
         }
         map.put("rows",page.getContent());
+        map.put("totalpages",page.getTotalPages());//返回总页数
+        map.put("total",page.getTotalElements());//返回总记录数
         return map;
     }
 
@@ -151,7 +216,8 @@ public class ItemSearchServiceImpl implements ItemSearchService {
         //得到分组入口集合
         List<GroupEntry<TbItem>> content = groupEntries.getContent();
         for(GroupEntry<TbItem> entry:content){
-            list.add(entry.getGroupValue());//将分组的结果的名称封装到返回值中
+            //将分组的结果的名称封装到返回值中
+            list.add(entry.getGroupValue());
         }
         return list;
     }

@@ -41,10 +41,10 @@
     <url-pattern>*.do</url-pattern>
   </servlet-mapping>
 
-
+  <!--主要加载spring-jms 和spring-security-->
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>classpath:spring/spring-security.xml</param-value>
+    <param-value>classpath:spring/spring-*.xml</param-value>
   </context-param>
   <listener>
     <listener-class>

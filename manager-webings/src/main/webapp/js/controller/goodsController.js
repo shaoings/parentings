@@ -1,6 +1,6 @@
  //控制层 
-app.controller('goodsController' ,function($scope,$controller ,goodsService,itemCatService,uploadService){
-	
+app.controller('goodsController' ,function($scope,$controller ,goodsService,itemCatService){
+
 	$controller('baseController',{$scope:$scope});//继承
 	
     //读取列表数据绑定到表单中  
@@ -68,7 +68,8 @@ app.controller('goodsController' ,function($scope,$controller ,goodsService,item
 	$scope.searchEntity={};//定义搜索对象 
 	
 	//搜索
-	$scope.search=function(page,rows){			
+	$scope.search=function(page,rows){
+
 		goodsService.search(page,rows,$scope.searchEntity).success(
 			function(response){
 				$scope.list=response.rows;	

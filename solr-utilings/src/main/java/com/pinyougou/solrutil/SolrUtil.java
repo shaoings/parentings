@@ -27,12 +27,13 @@ public class SolrUtil {
     public void impotItemData(){
         TbItemExample example = new TbItemExample();
         TbItemExample.Criteria criteria = example.createCriteria();
-        criteria.andStatusEqualTo("1");//审核通过的才导入的
+        //审核通过的才导入的
+        criteria.andStatusEqualTo("1");
         List<TbItem> itemList = tbItemMapper.selectByExample(example);
 
         for (TbItem item:itemList){
-           // System.out.println(item.getId()+" " +item.getTitle()+" ");
-            Map<String,String> specMap = JSON.parseObject(item.getSpec(), Map.class);//从数据库中提取规格JSON字符串转换为map
+            //从数据库中提取规格JSON字符串转换为map
+            Map<String,String> specMap = JSON.parseObject(item.getSpec(), Map.class);
             item.setSpecMap(specMap);
         }
         System.out.println("----结束----");

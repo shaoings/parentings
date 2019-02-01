@@ -23,6 +23,9 @@
         <module>search-interfaceings</module>
         <module>search-serviceings</module>
         <module>search-webings</module>
+        <module>page-interfaceings</module>
+        <module>page-serviceings</module>
+        <module>page-webings</module>
     </modules>
 
     <!-- 集中定义依赖版本号 -->
