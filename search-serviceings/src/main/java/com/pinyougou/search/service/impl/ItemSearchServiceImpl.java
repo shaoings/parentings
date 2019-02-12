@@ -68,7 +68,7 @@ public class ItemSearchServiceImpl implements ItemSearchService {
 
     @Override
     public void importList(List list) {
-        solrTemplate.saveBean(list);
+        solrTemplate.saveBeans(list);
         solrTemplate.commit();
     }
 
@@ -115,13 +115,13 @@ public class ItemSearchServiceImpl implements ItemSearchService {
 
         //1.4 按照规格删选
         if(!"{}".equals(searchMap.get("spec"))&&searchMap.get("spec") != null){//选择了规格
-           Map<String,String> specMap = (Map<String,String>) searchMap.get("spec");
-           for(String key : specMap.keySet()){
-               FilterQuery filterQuery = new SimpleQuery();
-               Criteria filterCriteria = new Criteria("item_spec_"+key).is(specMap.get(key));
-               filterQuery.addCriteria(filterCriteria);
-               query.addFilterQuery(filterQuery);
-           }
+            Map<String,String> specMap = (Map<String,String>) searchMap.get("spec");
+            for(String key : specMap.keySet()){
+                FilterQuery filterQuery = new SimpleQuery();
+                Criteria filterCriteria = new Criteria("item_spec_"+key).is(specMap.get(key));
+                filterQuery.addCriteria(filterCriteria);
+                query.addFilterQuery(filterQuery);
+            }
         }
 
         //1.5 按价格过滤
@@ -160,10 +160,10 @@ public class ItemSearchServiceImpl implements ItemSearchService {
         Sort sort = null;
         if(sortValue != null && !sortValue.equals("")){
             if(sortValue.equals("ASC")){
-                 sort = new Sort(Sort.Direction.ASC,"item_"+sortField);
+                sort = new Sort(Sort.Direction.ASC,"item_"+sortField);
             }
             if(sortValue.equals("DESC")){
-                 sort = new Sort(Sort.Direction.DESC,"item_"+sortField);
+                sort = new Sort(Sort.Direction.DESC,"item_"+sortField);
             }
             query.addSort(sort);
         }

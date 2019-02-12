@@ -2,7 +2,6 @@ package com.pinyougou.manager.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.alibaba.fastjson.JSON;
-import com.pinyougou.page.service.ItemPageService;
 import com.pinyougou.pojo.TbGoods;
 import com.pinyougou.pojo.TbItem;
 
@@ -22,7 +21,6 @@ import javax.jms.Destination;
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.Session;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -39,7 +37,17 @@ public class GoodsController {
 
 	/*@Reference(timeout = 100000)
 	private ItemSearchService itemSearchService;*/
-	
+
+	//用于导入solr索引库的消息（点对点）
+	@Autowired
+	private Destination queueSolrDeleteDestination;
+
+	//用于生成商品详细页的消息目标（发布订阅）
+	@Autowired
+	private Destination topicPageDestination;
+
+	@Autowired
+	private  Destination topicPageDeleteDestination;
 	/**
 	 * 返回全部列表
 	 * @return
@@ -107,8 +115,7 @@ public class GoodsController {
 
 
 
-	@Autowired
-	private Destination queueSolrDeleteDestination;
+
 	/**
 	 * 批量删除
 	 * @param ids
@@ -123,7 +130,14 @@ public class GoodsController {
 			jmsTemplate.send(queueSolrDeleteDestination, new MessageCreator() {
 				@Override
 				public Message createMessage(Session session) throws JMSException {
+					return session.createObjectMessage(ids);
+				}
+			});
 
+			//删除每个服务器上的商品详细页
+			jmsTemplate.send(topicPageDeleteDestination, new MessageCreator() {
+				@Override
+				public Message createMessage(Session session) throws JMSException {
 					return session.createObjectMessage(ids);
 				}
 			});
@@ -173,6 +187,7 @@ public class GoodsController {
 				List<TbItem> itemList = goodsService.findItemListByGoodsIdandStatus(ids,status);
 				//导入到solr
 				//itemSearchService.importList(itemList);
+				//转换为json
 				final String jsonString = JSON.toJSONString(itemList);
 				System.out.println("jsonString:"+jsonString);
 				jmsTemplate.send(queueSolrDestination, new MessageCreator() {
@@ -184,8 +199,16 @@ public class GoodsController {
 				});
 
 				//2.生成商品详细页
-				for(long goodsId:ids){
-					itemPageService.genItemHtml(goodsId);
+				for(final long goodsId:ids){
+				//itemPageService.genItemHtml(goodsId);
+				//通过activeMQ解除耦合
+					jmsTemplate.send(topicPageDestination, new MessageCreator() {
+						@Override
+						public Message createMessage(Session session) throws JMSException {
+
+							return session.createTextMessage(goodsId+"");
+						}
+					});
 				}
 			}
 
@@ -196,12 +219,12 @@ public class GoodsController {
 		}
 	}
 
-	@Reference(timeout = 40000)
+	/*@Reference(timeout = 40000)
 	private ItemPageService itemPageService;
 
 	@RequestMapping("/genHtml")
 	public void getHtml(Long goodsId){
 		itemPageService.genItemHtml(goodsId);
-	}
+	}*/
 	
 }
