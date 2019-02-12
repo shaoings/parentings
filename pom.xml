@@ -26,6 +26,9 @@
         <module>page-interfaceings</module>
         <module>page-serviceings</module>
         <module>page-webings</module>
+        <module>user-interfaceings</module>
+        <module>user-serviceings</module>
+        <module>user-webings</module>
     </modules>
 
     <!-- 集中定义依赖版本号 -->
