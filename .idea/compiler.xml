@@ -1,30 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
+    <option name="DEFAULT_COMPILER" value="Eclipse" />
     <annotationProcessing>
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="cartinterfaceings" />
+        <module name="carts-serviceings" />
+        <module name="cartswebings" />
+        <module name="cartwebing" />
         <module name="commonings" />
         <module name="contentinterfaceings" />
         <module name="contentserviceings" />
         <module name="daoings" />
         <module name="managerwebings" />
+        <module name="orderinterfaceings" />
+        <module name="orderserviceings" />
+        <module name="pageinterfaceings" />
+        <module name="pageserviceings" />
+        <module name="pagewebings" />
+        <module name="payinterfaceings" />
+        <module name="payserviceings" />
+        <module name="pojoings" />
         <module name="portalwebings" />
         <module name="searchinterfaceings" />
         <module name="searchserviceings" />
+        <module name="searchwebings" />
+        <module name="seckillinterfaceings" />
+        <module name="seckillserviceings" />
+        <module name="seckillwebings" />
         <module name="sellergoodsinterfaceings" />
         <module name="sellergoodsserviceings" />
         <module name="shopwebings" />
         <module name="solrutilings" />
+        <module name="userinterfaceings" />
+        <module name="userserviceings" />
+        <module name="userwebings" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="contentinterfaceings" target="1.8" />
-      <module name="daoings" target="1.8" />
-      <module name="pojoings" target="1.8" />
-      <module name="sellergoodsinterfaceings" target="1.8" />
+      <module name="cart-serviceings" target="1.8" />
+      <module name="cartserviceings" target="1.8" />
+      <module name="cartsserviceings" target="1.8" />
+      <module name="cartwebings" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

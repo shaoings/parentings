@@ -1,13 +1,18 @@
 package entity;
 
-;
 import java.io.Serializable;
 import java.util.List;
 
 public class PageResult implements Serializable {
+    /**
+     * 总记录数
+     */
+    private long total;
 
-    private long total;//总记录数
-    private List rows;//当前页结果
+    /**
+     * 当前页结果
+     */
+    private List rows;
 
 
     public long getTotal() {

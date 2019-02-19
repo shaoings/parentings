@@ -1,18 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding">
+  <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="GBK">
+    <file url="file://$PROJECT_DIR$/cart-interfaceings" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/carts-serviceings" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/carts-webings" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/commonings" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/content-interfaceings" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/content-serviceings" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/daoings" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/manager-webings" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/order-interfaceings" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/order-serviceings" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/page-interfaceings" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/page-serviceings" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/page-webings" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pay-interfaceings" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pay-serviceings" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/pojoings" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/portal-webings" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/search-interfaceings" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/search-serviceings" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/search-webings" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/seckill-interfaceings" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/seckill-serviceings" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/seckill-webings" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/sellergoods-interfaceings" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/sellergoods-serviceings" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/shop-webings" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/solr-utilings" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/user-interfaceings" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/user-serviceings" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/user-webings" charset="UTF-8" />
   </component>
 </project>

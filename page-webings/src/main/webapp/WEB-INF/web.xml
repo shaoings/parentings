@@ -9,11 +9,11 @@
   <display-name>Archetype Created Web Application</display-name>
 
   <!-- 加载spring容器 -->
-  <context-param>
+  <!--<context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>classpath*:spring/applicationContext*.xml</param-value>
   </context-param>
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-  </listener>
+  </listener>-->
 </web-app>

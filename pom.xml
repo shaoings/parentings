@@ -29,7 +29,25 @@
         <module>user-interfaceings</module>
         <module>user-serviceings</module>
         <module>user-webings</module>
+        <module>cart-interfaceings</module>
+        <module>carts-serviceings</module>
+        <module>carts-webings</module>
+        <module>order-interfaceings</module>
+        <module>order-serviceings</module>
+        <module>pay-interfaceings</module>
+        <module>pay-serviceings</module>
+        <module>seckill-interfaceings</module>
+        <module>seckill-serviceings</module>
+        <module>seckill-webings</module>
+
+
     </modules>
+    <dependencies>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+        </dependency>
+    </dependencies>
 
     <!-- 集中定义依赖版本号 -->
     <properties>

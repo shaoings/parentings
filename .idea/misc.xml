@@ -2,33 +2,41 @@
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/cart-serviceings" />
+    <file type="web" url="file://$PROJECT_DIR$/cart-webings" />
+    <file type="web" url="file://$PROJECT_DIR$/carts-serviceings" />
+    <file type="web" url="file://$PROJECT_DIR$/carts-webings" />
     <file type="web" url="file://$PROJECT_DIR$/content-serviceings" />
     <file type="web" url="file://$PROJECT_DIR$/contentinterfaceings/content-serviceings" />
     <file type="web" url="file://$PROJECT_DIR$/daoings" />
     <file type="web" url="file://$PROJECT_DIR$/manager-webings" />
+    <file type="web" url="file://$PROJECT_DIR$/order-serviceings" />
+    <file type="web" url="file://$PROJECT_DIR$/page-serviceings" />
+    <file type="web" url="file://$PROJECT_DIR$/page-webings" />
+    <file type="web" url="file://$PROJECT_DIR$/pay-interfaceings" />
+    <file type="web" url="file://$PROJECT_DIR$/pay-serviceings" />
     <file type="web" url="file://$PROJECT_DIR$/pojoings" />
     <file type="web" url="file://$PROJECT_DIR$/portal-webings" />
     <file type="web" url="file://$PROJECT_DIR$/search-serviceings" />
+    <file type="web" url="file://$PROJECT_DIR$/search-webings" />
+    <file type="web" url="file://$PROJECT_DIR$/seckill-serviceings" />
+    <file type="web" url="file://$PROJECT_DIR$/seckill-webings" />
     <file type="web" url="file://$PROJECT_DIR$/sellergoods-interfaceings" />
     <file type="web" url="file://$PROJECT_DIR$/sellergoods-serviceings" />
     <file type="web" url="file://$PROJECT_DIR$/shop-webings" />
+    <file type="web" url="file://$PROJECT_DIR$/user-serviceings" />
+    <file type="web" url="file://$PROJECT_DIR$/user-webings" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/contentinterfaceings/pom.xml" />
-      </list>
-    </option>
-    <option name="ignoredFiles">
-      <set>
-        <option value="$PROJECT_DIR$/content-interfaceings/pom.xml" />
-        <option value="$PROJECT_DIR$/contentinterfaceings/content-serviceings/pom.xml" />
-        <option value="$PROJECT_DIR$/daoings/pom.xml" />
         <option value="$PROJECT_DIR$/pojoings/pom.xml" />
-        <option value="$PROJECT_DIR$/pojoings/solr-utilings/pom.xml" />
-        <option value="$PROJECT_DIR$/sellergoods-interfaceings/pom.xml" />
-      </set>
+        <option value="$PROJECT_DIR$/manager-webings/pom.xml" />
+        <option value="$PROJECT_DIR$/cartserviceings/pom.xml" />
+        <option value="$PROJECT_DIR$/cartwebings/pom.xml" />
+      </list>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">

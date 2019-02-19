@@ -9,11 +9,20 @@ import java.util.List;
 
 public class Goods implements Serializable {
 
-    private TbGoods goods;//商品spu
+    /**
+     *商品spu
+     */
+    private TbGoods goods;
 
-    private TbGoodsDesc goodsDesc;//商品扩展
+    /**
+     *商品扩展
+     */
+    private TbGoodsDesc goodsDesc;
 
-    private List<TbItem> itemList;//商品sku
+    /**
+     *商品sku
+     */
+    private List<TbItem> itemList;
 
     public TbGoods getGoods() {
         return goods;
