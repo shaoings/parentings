@@ -57,5 +57,30 @@ public interface SeckillOrderService {
 	 * @return
 	 */
 	public PageResult findPage(TbSeckillOrder seckillOrder, int pageNum, int pageSize);
-	
+
+	/**
+	 * 秒杀下单
+	 * @param seckilled
+	 * @param userId
+	 */
+	public void submitOrder(Long seckilled,String userId);
+
+	/**
+	 * 从缓存中提取订单
+	 * @param UserId
+	 * @return
+	 */
+	 TbSeckillOrder searchOrderFromRedisByUserId(String UserId);
+
+	/**
+	 * 保存订单到数据库
+	 */
+	void saveOrderFromRedisToDb(String userId,Long orderId,String transactionId);
+
+	/**
+	 * 删除缓存中的订单
+	 * @param userId
+	 * @param orderId
+	 */
+	void deleteOrderFromRedis(String userId,Long orderId);
 }

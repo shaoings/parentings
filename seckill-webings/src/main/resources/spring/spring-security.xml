@@ -6,8 +6,8 @@
 
     <!--security不拦截的页面-->
    <!-- <http pattern="/cart.html" security="none"></http>-->
-    <http pattern="/*.html" security="none"></http>
-    <http pattern="/*.do" security="none"></http>
+    <http pattern="/seckill-*.html" security="none"></http>
+    <http pattern="/seckillGoods/*.do" security="none"></http>
 
     <http pattern="/css/**" security="none"></http>
     <http pattern="/js/**" security="none"></http>
@@ -18,14 +18,14 @@
     <!--  <http pattern="/user/sendCode.do" security="none"></http>-->
     <http use-expressions="false" entry-point-ref="casProcessingFilterEntryPoint">
         <!--access="IS_AUTHENTICATED_ANONYMOUSLY" 用于设置资源可以在不登陆时可以访问。-->
-        <!--<intercept-url pattern="/cart/*.do" access="IS_AUTHENTICATED_ANONYMOUSLY"/>-->
+        <intercept-url pattern="/seckillOrder/*.do" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
 
         <intercept-url pattern="/**" access="ROLE_USER"/>
         <csrf disabled="true"/>
         <custom-filter position="CAS_FILTER" ref="casAuthenticationFilter" />
         <custom-filter ref="requestSingleLogoutFilter" before="LOGOUT_FILTER"/>
         <custom-filter ref="singleLogoutFilter" before="CAS_FILTER"/>
-        <csrf disabled="false"/>
+        <!--<csrf disabled="false"/>-->
     </http>
 
 
@@ -47,7 +47,7 @@
     </beans:bean>      
     <beans:bean id="serviceProperties" class="org.springframework.security.cas.ServiceProperties">  
         <!--service 配置自身工程的根地址+/login/cas(固定写法)   -->
-        <beans:property name="service" value="http://localhost:9107/login/cas"/>
+        <beans:property name="service" value="http://localhost:9109/login/cas"/>
     </beans:bean>  
     <!-- CAS入口点 结束 -->
 
@@ -79,7 +79,7 @@
     </beans:bean>        
    		 <!-- 认证类 -->
 
-	<beans:bean id="userDetailsService" class="com.pinyougou.cart.service.UserDetailServiceImpl"/>
+	<beans:bean id="userDetailsService" class="com.pinyougou.seckill.service.UserDetailServiceImpl"/>
 
 
 	<!-- 认证过滤器 结束 -->

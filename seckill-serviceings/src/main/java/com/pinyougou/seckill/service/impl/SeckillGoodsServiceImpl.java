@@ -10,7 +10,10 @@ import com.pinyougou.pojo.TbSeckillGoodsExample.Criteria;
 import com.pinyougou.seckill.service.SeckillGoodsService;
 import entity.PageResult;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.security.web.PortResolverImpl;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -109,5 +112,45 @@ public class SeckillGoodsServiceImpl implements SeckillGoodsService {
 		Page<TbSeckillGoods> page= (Page<TbSeckillGoods>)seckillGoodsMapper.selectByExample(example);		
 		return new PageResult(page.getTotal(), page.getResult());
 	}
-	
+
+	@Autowired
+	private RedisTemplate redisTemplate;
+
+	@Override
+	public List<TbSeckillGoods> findList() {
+		//values将hash值直接转list
+		List<TbSeckillGoods> tbSeckillGoodsList =  redisTemplate.boundHashOps("seckillGoods").values();
+
+		if(tbSeckillGoodsList.size() == 0){
+			TbSeckillGoodsExample example = new TbSeckillGoodsExample();
+			Criteria criteria = example.createCriteria();
+			//审核通过的商品
+			criteria.andStatusEqualTo("1");
+			//库存大于0
+			criteria.andStockCountGreaterThan(0);
+			//开始日期
+			criteria.andStartTimeLessThanOrEqualTo(new Date());
+			//结束日期
+			criteria.andEndTimeGreaterThan(new Date());
+			tbSeckillGoodsList = seckillGoodsMapper.selectByExample(example);
+			//将列表数据装入缓存
+			for (TbSeckillGoods seckillGoods:tbSeckillGoodsList){
+				redisTemplate.boundHashOps("seckillGoods").put(seckillGoods.getId(),seckillGoods);
+			}
+			System.out.println("将数据库中的数据装入缓存");
+		}else{
+			System.out.println("从缓存中读取数据");
+		}
+
+
+
+
+		return tbSeckillGoodsList;
+	}
+
+	@Override
+	public TbSeckillGoods findOneFromRedis(Long id) {
+		return (TbSeckillGoods) redisTemplate.boundHashOps("seckillGoods").get(id);
+	}
+
 }

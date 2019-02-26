@@ -18,4 +18,6 @@ public interface WexinPayService {
      * @return
      */
      Map queryPayStatus(String out_trade_no);
+
+      Map closePay(String out_trade_no);
 }

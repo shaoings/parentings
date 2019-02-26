@@ -101,7 +101,7 @@ public class SeckillGoodsController {
 	
 		/**
 	 * 查询+分页
-	 * @param brand
+	 * @param
 	 * @param page
 	 * @param rows
 	 * @return
@@ -110,5 +110,21 @@ public class SeckillGoodsController {
 	public PageResult search(@RequestBody TbSeckillGoods seckillGoods, int page, int rows  ){
 		return seckillGoodsService.findPage(seckillGoods, page, rows);		
 	}
-	
+
+	/**
+	 * 当前秒杀的商品
+	 * @return
+	 */
+	@RequestMapping("/findList")
+	public List<TbSeckillGoods> findList(){
+		return seckillGoodsService.findList();
+	}
+
+
+	@RequestMapping("/findOneFromRedis")
+	public TbSeckillGoods findOneFromRedis(long id){
+		return seckillGoodsService.findOneFromRedis(id);
+	}
+
+
 }
