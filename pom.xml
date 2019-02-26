@@ -39,6 +39,7 @@
         <module>seckill-interfaceings</module>
         <module>seckill-serviceings</module>
         <module>seckill-webings</module>
+        <module>task-serviceings</module>
 
 
     </modules>
