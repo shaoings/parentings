@@ -10,7 +10,9 @@
     <!--这个端口不能重复-->
     <dubbo:protocol name="dubbo" port="20887"></dubbo:protocol>
 	<dubbo:application name="carts-serviceings"/>
+<!--
     <dubbo:registry address="zookeeper://192.168.25.132:2181"/>
+-->
     <dubbo:annotation package="com.pinyougou.cart.service.impl" />
    
    

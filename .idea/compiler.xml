@@ -35,6 +35,7 @@
         <module name="sellergoodsserviceings" />
         <module name="shopwebings" />
         <module name="solrutilings" />
+        <module name="taskserviceings" />
         <module name="userinterfaceings" />
         <module name="userserviceings" />
         <module name="userwebings" />

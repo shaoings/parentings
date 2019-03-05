@@ -64,7 +64,7 @@
     </beans:bean>
     <!--远程调用dubbox服务-->
     <dubbo:application name="pinyougou-shop-web" />
-    <dubbo:registry address="zookeeper://192.168.25.132:2181"/>
+    <!--<dubbo:registry address="zookeeper://192.168.25.132:2181"/>-->
     <dubbo:reference id = "sellerService" interface="com.pinyougou.sellergoods.service.SellerService"/>
 
     <!--BCrypt加密算法-->
