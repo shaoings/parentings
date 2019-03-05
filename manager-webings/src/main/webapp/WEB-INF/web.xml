@@ -44,7 +44,7 @@
   <!--主要加载spring-jms 和spring-security-->
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>classpath:spring/spring-*.xml</param-value>
+    <param-value>classpath:spring/spring-*.xml,classpath:spring/applicationContext-dubbox.xml</param-value>
   </context-param>
   <listener>
     <listener-class>
